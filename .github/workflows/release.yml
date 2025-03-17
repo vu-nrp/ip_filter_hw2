@@ -24,24 +24,24 @@ jobs:
 #      - name: 'Run GTest'
 #        run: /home/runner/work/ip_filter_hw2/ip_filter_hw2/filter_test2
       # Create Release Step
-#      - name: 'Create Release Step'
-#        id: create_release
-#        uses: actions/create-release@v1
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-#        with:
-#          tag_name: ${{ github.run_number }}
-#          release_name: Release ${{ github.run_number }}
-#          draft: false
-#          prerelease: false
+      - name: 'Create Release Step'
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+          draft: false
+          prerelease: false
       # Upload Release Asset Step
-#      - name: 'Upload Release Asset Step for hw#2'
-#        id: upload_release_asset
-#        uses: actions/upload-release-asset@v1
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-#        with:
-#          upload_url: ${{ steps.create_release.outputs.upload_url }}
-#          asset_path: ./ipfilter-0.0.${{ github.run_number }}-Linux.deb
-#          asset_name: ipfilter-0.0.${{ github.run_number }}-Linux.deb
-#          asset_content_type: application/vnd.debian.binary-package
+      - name: 'Upload Release Asset Step for hw#2'
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./ipfilter-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: ipfilter-0.0.${{ github.run_number }}-Linux.deb
+          asset_content_type: application/vnd.debian.binary-package
