@@ -61,7 +61,7 @@ BOOST_AUTO_TEST_CASE(test_verify_all)
 
     uint8_t byte;
     for (const auto &item: test_list5) {
-        const addr = split(item, '.');
+        const auto addr = split(item, '.');
         if (verify(addr, 4))
             for (const auto &part: addr)
                 BOOST_CHECK(verify(part, byte));
@@ -79,7 +79,7 @@ BOOST_AUTO_TEST_CASE(test_verify_all)
 
     for (const auto &item: test_list6) {
         uint8_t byte;
-        const addr = split(item, '.');
+        const auto addr = split(item, '.');
         if (verify(addr, 4)) {
             bool success = true;
             for (const auto &part: addr)
