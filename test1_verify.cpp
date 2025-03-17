@@ -83,7 +83,7 @@ BOOST_AUTO_TEST_CASE(test_verify_all)
         if (verify(addr, 4)) {
             bool success = true;
             for (const auto &part: addr)
-                success &= verify(part, byte)
+                success &= verify(part, byte);
             BOOST_CHECK(!success);
         } else
             BOOST_CHECK(false);
