@@ -38,6 +38,10 @@ int main()
                 const auto addr_string = split(log_string.at(0), '.');
                 if (verify(addr_string, AddressDataV4::BytePartsCount))
                     ip_pool_str.push_back(std::make_pair(log_string.at(0), addr_string));
+                else
+                    std::cout << "skip not log ip addr string " << log_string.at(0);
+            } else {
+                std::cout << "skip not log line " << line;
             }
         }
 
@@ -64,8 +68,8 @@ int main()
                 //
                 ip_pool_addrs.push_back(ip4data);
 
-                // print all ip's list
-                std::cout << ip4data.string << std::endl;
+                // print all original ip's list
+                // std::cout << ip4data.string << std::endl;
             }
         }
 
